@@ -13,7 +13,7 @@ public class ChatBotRunner
 	 */
 	public static void main(String[] args)
 	{
-		ChatBot1 chatbot1 = new ChatBot1();
+		CompatibilityBot compatibilityBot = new CompatibilityBot();
 		ChatBot2 chatbot2 = new ChatBot2();
 		Daddybot Daddybot = new Daddybot();
 		
@@ -30,7 +30,7 @@ public class ChatBotRunner
 
 
 
-			chatbot1.chatLoop(statement);
+			compatibilityBot.chatLoop(statement);
 
 
 			statement = in.nextLine();

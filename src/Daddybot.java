@@ -42,7 +42,7 @@ public class Daddybot
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hi buddy, what is up?";
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class Daddybot
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "Please say something to your dear old man.";
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
@@ -265,11 +265,11 @@ public class Daddybot
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all boolean to me.",
+			"It's all treyway to me.",
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String [] randomAngryResponses = {"YOU'RE OUT OF ORDER!.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 	
 }
