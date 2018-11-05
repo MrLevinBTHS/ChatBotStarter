@@ -61,7 +61,7 @@ public class CompatibilityBot
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "I don't think you are compatible.";
                 	emotion--;
 		}
 		
