@@ -40,7 +40,7 @@ public class CompatibilityBot
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hi, I'm the Compatibility Bot. Would you like me to measure your compatibility?";
 	}
 	
 	/**
@@ -61,16 +61,16 @@ public class CompatibilityBot
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "I don't think you are compatible.";
+			response = "Okay, have a nice day.";
                 	emotion--;
 		}
 		
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "yes") >= 0)
 		{
-			response = "More like LevinTheDream, amiright?";
+			response = "Let's check the compatibility meter.";
 			emotion++;
 		}
-		else if (findKeyword(statement, "folwell") >= 0)
+		else if (findKeyword(statement, "  ") >= 0)
 		{
 			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
 			emotion++;
@@ -269,15 +269,15 @@ public class CompatibilityBot
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
 	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
+	private String [] randomNeutralResponses = {"Try again.",
 			"Hmmm.",
-			"Do you really think so?",
-			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
-			"Could you say that again?"
+			"Still unable to calculate your compatibility.",
+			"Try again.",
+			"Keep trying.",
+			"How about someone else?",
+			"Maybe another name?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String [] randomAngryResponses = {"ui.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 	
 }
