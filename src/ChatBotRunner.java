@@ -26,14 +26,35 @@ public class ChatBotRunner
 		while (!statement.equals("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
-			//This example has only chatbot1
+            Scanner select = new Scanner(System.in);
+            String Sanjay = select.nextLine();
+            System.out.println("Do you want to talk about compatibility, relationship goals, or talk to your dad?(Please type in compatibility, goals, or dad)");
+
+            if(  Sanjay.equals("dad"))
+            {
+                Daddybot.chatLoop(statement);
 
 
+                statement = in.nextLine();
 
-			ChatBot2.chatLoop(statement);
+            }
+            if(  Sanjay.equals("compatibility"))
+            {
+                CompatabilityBot.chatLoop(statement);
 
 
-			statement = in.nextLine();
+                statement = in.nextLine();
+
+            }
+            if(  Sanjay.equals("goals"))
+            {
+                ChatBot2.chatLoop(statement);
+
+
+                statement = in.nextLine();
+
+            }
+            //This example has only chatbot1
 
 
 		}
