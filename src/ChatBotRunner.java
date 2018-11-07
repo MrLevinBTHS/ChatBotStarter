@@ -14,7 +14,7 @@ public class ChatBotRunner
 	public static void main(String[] args)
 	{
 		ChatBot2 chatBot2 = new ChatBot2();
-		CompatibilityBot CompatabilityBot = new CompatibilityBot();
+		CompatibilityBot CompatibilityBot = new CompatibilityBot();
 		Daddybot Daddybot = new Daddybot();
 		
 
@@ -40,7 +40,7 @@ public class ChatBotRunner
             }
             if(  Sanjay.equals("compatibility"))
             {
-                CompatabilityBot.chatLoop(statement);
+                CompatibilityBot.chatLoop(statement);
 
 
                 statement = in.nextLine();
