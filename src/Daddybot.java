@@ -74,13 +74,13 @@ public class Daddybot
 		}
 
 		// Response transforming I want to statement
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "I like", 0) >= 0)
 		{
-			response = transformIWantToStatement(statement);
+			response = IlikeStatement(statement);
 		}
-		else if (findKeyword(statement, "I want",0) >= 0)
+		else if (findKeyword(statement, "I like",0) >= 0)
 		{
-			response = transformIWantStatement(statement);
+			response = IlikeStatement(statement);
 		}	
 		else
 		{
@@ -265,7 +265,7 @@ public class Daddybot
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all treyway to me.",
+			"It's all Gucci to me.",
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
 	};
@@ -282,7 +282,7 @@ public class Daddybot
 		}
 		int psn = findKeyword (ting, "I like ", 0);
 		String restOfTing = ting.substring(psn + 7).trim();
-		return "Why do you like " + restOfTing + "? What are some of" + restOfTing + "'s best qualities?";
+		return "Why do you like " + restOfTing + "? What are some of " + restOfTing + "'s best qualities?";
 
 	}
 
