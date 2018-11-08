@@ -13,7 +13,7 @@ public class ChatBotRunner
 	 */
 	public static void main(String[] args)
 	{
-		ChatBot2 chatBot2 = new ChatBot2();
+		DoctorLoveBot doctorlovebot = new DoctorLoveBot();
 		CompatibilityBot compatibilityBot = new CompatibilityBot();
 		Daddybot daddybot = new Daddybot();
 		
