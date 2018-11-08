@@ -272,7 +272,7 @@ public class Daddybot
 	private String [] randomAngryResponses = {"YOU'RE OUT OF ORDER!.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 
-	private String IlikeStatement(String ting)
+	public String IlikeStatement(String ting)
 	{
 		ting = ting.trim();
 		String lastTing = ting.substring(ting.length()-1);
