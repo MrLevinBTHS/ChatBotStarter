@@ -277,7 +277,24 @@ public class CompatibilityBot
 			"How about someone else?",
 			"Maybe another name?"
 	};
+
 	private String [] randomAngryResponses = {"ui.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+
+
+	private String IthinkStatement(String name)
+	{
+		name = name.trim();
+		String lastName = name.substring(name.length()-1);
+		if (lastName.equals("."))
+		{
+			name = name.substring(0, name.length() - 1);
+		}
+		int psn = findKeyword (name, "I like ", 0);
+		String restOfname = name.substring(psn + 7).trim();
+		return "Why do you like " + restOfname + "? What are some of" + restOfname + "'s best qualities?";
+
+	}
+
+
 }
