@@ -49,7 +49,7 @@ public class ChatBotRunner
             }
             if(  Sanjay.equals("goals"))
             {
-                chatBot2.chatLoop(statement);
+                doctorlovebot.chatLoop(statement);
 
 
                 statement = in.nextLine();
