@@ -52,6 +52,9 @@ public class CompatibilityBot
 	 */
 	public String getResponse(String statement)
 	{
+		double randomDouble = Math.random();
+		int randomInt = (int) (randomDouble * 11);
+
 		String response = "";
 		
 		if (statement.length() == 0)
@@ -73,16 +76,19 @@ public class CompatibilityBot
 		else if (findKeyword(statement, "yes") >= 0)
 		{
 			response = "Awesome! Let's check the compatibility meter. It will measure your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
 			emotion++;
 		}
 		else if (findKeyword(statement, "sure") >= 0)
 		{
 			response = "Okay, I will calculate your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
 			emotion++;
 		}
 		else if (findKeyword(statement, "yeah") >= 0)
 		{
 			response = "Great! I will calculate your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
 			emotion++;
 		}
 
