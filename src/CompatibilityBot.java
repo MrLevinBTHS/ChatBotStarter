@@ -64,20 +64,25 @@ public class CompatibilityBot
 			response = "Okay, have a nice day.";
                 	emotion--;
 		}
+		else if (findKeyword(statement, "nah") >= 0)
+		{
+			response = "Okay, maybe another time.";
+			emotion--;
+		}
 		
 		else if (findKeyword(statement, "yes") >= 0)
 		{
-			response = "Let's check the compatibility meter.";
+			response = "Awesome! Let's check the compatibility meter. It will measure your compatibility from a scale of 1-10.";
 			emotion++;
 		}
-		else if (findKeyword(statement, "  ") >= 0)
+		else if (findKeyword(statement, "sure") >= 0)
 		{
-			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
+			response = "Okay, I will calculate your compatibility from a scale of 1-10.";
 			emotion++;
 		}
-		else if (findKeyword(statement, "goldman") >= 0)
+		else if (findKeyword(statement, "yeah") >= 0)
 		{
-			response = "Go for the gold, man.";
+			response = "Great! I will calculate your compatibility from a scale of 1-10.";
 			emotion++;
 		}
 
@@ -278,8 +283,8 @@ public class CompatibilityBot
 			"Maybe another name?"
 	};
 
-	private String [] randomAngryResponses = {"ui.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomAngryResponses = {"That's unfortunate.", "That's terrible!", "That infuriates me!"};
+	private String [] randomHappyResponses = {"You guys are a perfect match!", "That is wonderful to hear!", "Splendid!"};
 
 
 	private String IthinkStatement(String name)
@@ -290,9 +295,9 @@ public class CompatibilityBot
 		{
 			name = name.substring(0, name.length() - 1);
 		}
-		int psn = findKeyword (name, "I like ", 0);
+		int psn = findKeyword (name, "I dislike ", 0);
 		String restOfname = name.substring(psn + 7).trim();
-		return "Why do you like " + restOfname + "? What are some of" + restOfname + "'s best qualities?";
+		return "Why do you dislike " + restOfname + "? What are some of the reasons you dislike " + restOfname + " ?";
 
 	}
 
