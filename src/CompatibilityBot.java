@@ -1,3 +1,4 @@
+//Serline Cai
 import java.util.Random;
 import java.util.Scanner;
 
@@ -54,6 +55,7 @@ public class CompatibilityBot
 	{
 		double randomDouble = Math.random();
 		int randomInt = (int) (randomDouble * 11);
+
 
 		String response = "";
 		
@@ -292,6 +294,11 @@ public class CompatibilityBot
 	private String [] randomAngryResponses = {"That's unfortunate.", "That's terrible!", "That infuriates me!"};
 	private String [] randomHappyResponses = {"You guys are a perfect match!", "That is wonderful to hear!", "Splendid!"};
 
+	/**
+	 * Transform Statement
+	 * @param name I Think Statement
+	 * @return This statement will return a string with a sentence about a specific quality you dislike about a person. 
+	 */
 
 	private String IthinkStatement(String name)
 	{
