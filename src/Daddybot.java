@@ -43,6 +43,8 @@ public class Daddybot
 	public String getGreeting()
 	{
 		return "Hi buddy, what is up?";
+
+
 	}
 	
 	/**
@@ -66,7 +68,15 @@ public class Daddybot
 			response = "Why so negative?";
                 	emotion--;
 		}
-		
+		else if (findKeyword(statement, "hate")>=0)
+		{
+			response = "That's a very strong emotion!!"+ IhateStatement(statement);
+					emotion--;
+		}
+		else if (findKeyword(statement,"I don't like")>=0)
+		{
+			response = IdontlikeStatement(statement);
+		}
 		else if (findKeyword(statement, "levin") >= 0)
 		{
 			response = "More like LevinTheDream amiright?";
@@ -78,10 +88,6 @@ public class Daddybot
 		{
 			response = IlikeStatement(statement);
 		}
-		else if (findKeyword(statement, "I like",0) >= 0)
-		{
-			response = IlikeStatement(statement);
-		}	
 		else
 		{
 			response = getRandomResponse();
@@ -285,5 +291,29 @@ public class Daddybot
 		return "Why do you like " + restOfTing + "? What are some of " + restOfTing + "'s best qualities?";
 
 	}
+	public String IhateStatement(String ting)
+	{
+		ting = ting.trim();
+		String lastTing = ting.substring(ting.length()-1);
+		if (lastTing.equals("."))
+		{
+			ting = ting.substring(0, ting.length() - 1);
+		}
+		int psn = findKeyword (ting, "I hate ", 0);
+		String restOfTing = ting.substring(psn + 7).trim();
+		return "Why do you hate " + restOfTing + "? What has " + restOfTing + " done to make you so upset?";
 
+	}
+	public String IdontlikeStatement(String ting)
+	{
+		ting = ting.trim();
+		String lastTing = ting.substring(ting.length()-1);
+		if (lastTing.equals("."))
+		{
+			ting = ting.substring(0, ting.length() - 1);
+		}
+		int psn = findKeyword (ting, "I don't like ", 0);
+		String restOfTing = ting.substring(psn + 13).trim();
+		return "Why don't you like " + restOfTing + "? What are some of " + restOfTing + "'s worst qualities?";
+}
 }
