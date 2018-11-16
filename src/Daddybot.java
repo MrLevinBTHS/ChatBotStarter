@@ -7,10 +7,12 @@ import java.util.Scanner;
  * @author Brooklyn Tech CS Department
  * @version September 2018
  */
-public class ChatBot1
+public class Daddybot
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
+
+
 
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
@@ -40,7 +42,9 @@ public class ChatBot1
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hi buddy, what is up?";
+
+
 	}
 	
 	/**
@@ -56,7 +60,7 @@ public class ChatBot1
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "Please say something to your dear old man.";
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
@@ -64,32 +68,26 @@ public class ChatBot1
 			response = "Why so negative?";
                 	emotion--;
 		}
-		
+		else if (findKeyword(statement, "hate")>=0)
+		{
+			response = "That's a very strong emotion!!"+ IhateStatement(statement);
+					emotion--;
+		}
+		else if (findKeyword(statement,"I don't like")>=0)
+		{
+			response = IdontlikeStatement(statement);
+		}
 		else if (findKeyword(statement, "levin") >= 0)
 		{
-			response = "More like LevinTheDream, amiright?";
-			emotion++;
-		}
-		else if (findKeyword(statement, "folwell") >= 0)
-		{
-			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
-			emotion++;
-		}
-		else if (findKeyword(statement, "goldman") >= 0)
-		{
-			response = "Go for the gold, man.";
+			response = "More like LevinTheDream amiright?";
 			emotion++;
 		}
 
 		// Response transforming I want to statement
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "I like", 0) >= 0)
 		{
-			response = transformIWantToStatement(statement);
+			response = IlikeStatement(statement);
 		}
-		else if (findKeyword(statement, "I want",0) >= 0)
-		{
-			response = transformIWantStatement(statement);
-		}	
 		else
 		{
 			response = getRandomResponse();
@@ -273,11 +271,49 @@ public class ChatBot1
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all boolean to me.",
+			"It's all Gucci to me.",
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
+	private String [] randomAngryResponses = {"YOU'RE OUT OF ORDER!.", "Harumph", "The rage consumes me!"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+
+	public String IlikeStatement(String ting)
+	{
+		ting = ting.trim();
+		String lastTing = ting.substring(ting.length()-1);
+		if (lastTing.equals("."))
+		{
+			ting = ting.substring(0, ting.length() - 1);
+		}
+		int psn = findKeyword (ting, "I like ", 0);
+		String restOfTing = ting.substring(psn + 7).trim();
+		return "Why do you like " + restOfTing + "? What are some of " + restOfTing + "'s best qualities?";
+
+	}
+	public String IhateStatement(String ting)
+	{
+		ting = ting.trim();
+		String lastTing = ting.substring(ting.length()-1);
+		if (lastTing.equals("."))
+		{
+			ting = ting.substring(0, ting.length() - 1);
+		}
+		int psn = findKeyword (ting, "I hate ", 0);
+		String restOfTing = ting.substring(psn + 7).trim();
+		return "Why do you hate " + restOfTing + "? What has " + restOfTing + " done to make you so upset?";
+
+	}
+	public String IdontlikeStatement(String ting)
+	{
+		ting = ting.trim();
+		String lastTing = ting.substring(ting.length()-1);
+		if (lastTing.equals("."))
+		{
+			ting = ting.substring(0, ting.length() - 1);
+		}
+		int psn = findKeyword (ting, "I don't like ", 0);
+		String restOfTing = ting.substring(psn + 13).trim();
+		return "Why don't you like " + restOfTing + "? What are some of " + restOfTing + "'s worst qualities?";
+}
 }

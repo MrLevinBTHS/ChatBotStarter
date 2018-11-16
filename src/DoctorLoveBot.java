@@ -2,12 +2,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * Ishrat Soha
  * A program to carry on conversations with a human user.
  * This version:
  * @author Brooklyn Tech CS Department
  * @version September 2018
  */
-public class ChatBot2
+public class DoctorLoveBot
+
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
@@ -57,18 +59,18 @@ public class ChatBot2
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "Talk to me about your feelings and how you feel about relationships.";
 		}
 
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "honest") >= 0)
 		{
-			response = "Why so negative?";
+			response = "A truthful partner is always a great person to have by your side.";
                 	emotion--;
 		}
 		
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "romantic") >= 0)
 		{
-			response = "More like LevinTheDream amiright?";
+			response = "Aw, that's adorable. Hopefully you find someone just like that.";
 			emotion++;
 		}
 
@@ -264,11 +266,11 @@ public class ChatBot2
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
-			"Could you say that again?"
+			"That's crazy, tell me more.",
+			"Let it all out you'll feel better.?",
+			"Why don't you elaborate?"
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomHappyResponses = {"YAY", "Today is a good day", "You make me feel like a brand new pair of shoes."};
 	
 }

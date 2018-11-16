@@ -1,3 +1,4 @@
+//Serline Cai
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,12 +8,10 @@ import java.util.Scanner;
  * @author Brooklyn Tech CS Department
  * @version September 2018
  */
-public class ChatBot3
+public class CompatibilityBot
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
-
-
 
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
@@ -42,7 +41,7 @@ public class ChatBot3
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hi, I'm the Compatibility Bot. Would you like me to measure your compatibility?";
 	}
 	
 	/**
@@ -54,6 +53,10 @@ public class ChatBot3
 	 */
 	public String getResponse(String statement)
 	{
+		double randomDouble = Math.random();
+		int randomInt = (int) (randomDouble * 11);
+
+
 		String response = "";
 		
 		if (statement.length() == 0)
@@ -63,13 +66,31 @@ public class ChatBot3
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "Okay, have a nice day.";
                 	emotion--;
 		}
-		
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "nah") >= 0)
 		{
-			response = "More like LevinTheDream amiright?";
+			response = "Okay, maybe another time.";
+			emotion--;
+		}
+		
+		else if (findKeyword(statement, "yes") >= 0)
+		{
+			response = "Awesome! Let's check the compatibility meter. It will measure your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
+			emotion++;
+		}
+		else if (findKeyword(statement, "sure") >= 0)
+		{
+			response = "Okay, I will calculate your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
+			emotion++;
+		}
+		else if (findKeyword(statement, "yeah") >= 0)
+		{
+			response = "Great! I will calculate your compatibility from a scale of 1-10.";
+			System.out.println(randomInt);
 			emotion++;
 		}
 
@@ -261,15 +282,37 @@ public class ChatBot3
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
 	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
+	private String [] randomNeutralResponses = {"Try again.",
 			"Hmmm.",
-			"Do you really think so?",
-			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
-			"Could you say that again?"
+			"Still unable to calculate your compatibility.",
+			"Try again.",
+			"Keep trying.",
+			"How about someone else?",
+			"Maybe another name?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-	
+
+	private String [] randomAngryResponses = {"That's unfortunate.", "That's terrible!", "That infuriates me!"};
+	private String [] randomHappyResponses = {"You guys are a perfect match!", "That is wonderful to hear!", "Splendid!"};
+
+	/**
+	 * Transform Statement
+	 * @param name I Think Statement
+	 * @return This statement will return a string with a sentence about a specific quality you dislike about a person. 
+	 */
+
+	private String IthinkStatement(String name)
+	{
+		name = name.trim();
+		String lastName = name.substring(name.length()-1);
+		if (lastName.equals("."))
+		{
+			name = name.substring(0, name.length() - 1);
+		}
+		int psn = findKeyword (name, "I dislike ", 0);
+		String restOfname = name.substring(psn + 7).trim();
+		return "Why do you dislike " + restOfname + "? What are some of the reasons you dislike " + restOfname + " ?";
+
+	}
+
+
 }

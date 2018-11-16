@@ -13,27 +13,49 @@ public class ChatBotRunner
 	 */
 	public static void main(String[] args)
 	{
-		ChatBot1 chatbot1 = new ChatBot1();
-		ChatBot2 chatbot2 = new ChatBot2();
-		ChatBot3 chatbot3 = new ChatBot3();
+		DoctorLoveBot doctorlovebot = new DoctorLoveBot();
+		CompatibilityBot compatibilityBot = new CompatibilityBot();
+		Daddybot daddybot = new Daddybot();
 		
 
 		Scanner in = new Scanner (System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
 		String statement = in.nextLine();
+        Scanner select = new Scanner(System.in);
+       	System.out.println("Do you want to talk about compatibility, relationship goals, or talk to your dad?(Please type in compatibility, goals, or dad)");
+        String Sanjay = select.nextLine();
 
 
 		while (!statement.equals("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
-			//This example has only chatbot1
 
 
+            if(  Sanjay.equals("dad"))
+            {
+                daddybot.chatLoop(statement);
 
-			chatbot1.chatLoop(statement);
+
+                statement = in.nextLine();
+
+            }
+            if(  Sanjay.equals("compatibility"))
+            {
+                compatibilityBot.chatLoop(statement);
 
 
-			statement = in.nextLine();
+                statement = in.nextLine();
+
+            }
+            if(  Sanjay.equals("goals"))
+            {
+                doctorlovebot.chatLoop(statement);
+
+
+                statement = in.nextLine();
+
+            }
+            //This example has only chatbot1
 
 
 		}
